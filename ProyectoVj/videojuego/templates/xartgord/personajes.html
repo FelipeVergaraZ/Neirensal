@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIKI - ED</title>
+    <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/video.css' %} " rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <source src="https://giant.gfycat.com/LazyOddAgama.webm">
+        </video>
+    <header class="menu-fixed">
+        <div class="bordmenu">
+            <script src="{% static 'java/script.js' %}"></script>
+            <div class="topnav " id="myTopnav">
+                <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
+                <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
+                <a class="indemenu" href="{% url 'items' %}">ITEMS</a>
+                <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
+                <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
+                <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
+                <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
+                    <a class="indemenu" href="{% url 'form_mercancia' %}">LISTA PRODUCTO</a> {% endif %}
+                </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <a class="inicioderecha" href="{% url 'logout' %}">cerrar secion</a> {% else %}
+                    <a class="inicioderecha" href="{% url 'loginn' %}">iniciar secion</a> {% endif %}
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <br>
+    <section>
+        <div class="container">
+            <div class="jumbotron text-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/personajes.png' %}"></div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4">PERSONAJES</h2>
+                                <p>Aqui podrás ver algunos de los personajes que se encuentran en el gran mundo de Xatgord.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="bordhr">
+    <br>
+    <section>
+        <div class="container">
+            <div class="jumbotron text-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4">POPEKUN EL PALADIN.</h2>
+                                <p>Este es Popekun el Paladín, uno de los doce legendarios guardianes del mundo, también conocido como el gran aventurero que salvara a Xatgord de su ruina.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="rounded img-fluid personajes1" src="{% static 'img/popem.png' %}" width="300px"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="bordhr">
+    <br>
+    <section>
+        <div class="container">
+            <div class="jumbotron1 text-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <h2 class="display-4">DOSH EL CLERIGO.</h2>
+                                <p>Dosh el Clérigo, este hombre recibe ordenes sagradas las cuales tiene que obedecer para poder convivir en Xatgord.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5"><img class="rounded img-fluid personajes1" src="{% static 'img/dosh.png' %}" width="300px"> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="bordhr">
+    <br>
+    <section>
+        <div class="container">
+            <div class="jumbotron text-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4">NEIRENS EL LADRON.</h2>
+                                <p>Neirens el Ladrón, un ex convicto experto en el crimen, se caracteriza por robar armas y revenderlas entre enemigos para ganar dinero.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="rounded img-fluid personajes1" src="{% static 'img/neirens.png' %}" width="300px"> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="bordhr">
+    <br>
+    <section>
+        <div class="container">
+            <div class="jumbotron1 text-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <h2 class="display-4">KAILO EL GUERRERO.</h2>
+                                <p class="pa11">Kailo el Guerrero, experto en el campo de batalla, sus compañeros se guían por sus movimientos y habilidades únicas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5"><img class="rounded img-fluid personajes1" src="{% static 'img/kailo.png' %}" width="300px"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="bordhr">
+    <section class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h2 class="masthead-subheading mb-0"></h2><a class="btn bottoncolor btn-xl rounded-pill mt-5" role="button" href="#">   Arriba   </a></div>
+        </div>
+    </section>
+    <br>
+    <hr class="bordhr">
+    <div class="jumbotronfinal">
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="text-center ">Xatgord 2021&nbsp;© Xatgord 2021</p>
+                <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
+                <br>
+                <div class="iconoo">
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
+                </div>
+                <div class="container">
+                    <div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="p-5">
+                                    <a class="nav-link"><a class="colti" href="https://www.instagram.com/?hl=es-la"  target="blank">Instragram</a>
+                                    <img class="ico" src=" {% static 'img/icons8-instagram.gif' %} " width="30px" />
+                                    <a class="nav-link"><a class="colti" href="https://www.facebook.com" target="blank" >Facebook</a>
+                                    <img class="ico" src=" {% static 'img/icons8-facebook-rodeado-de-círculo.gif'%}" width="30px" />
+                                    <a class="nav-link"><a class="colti" href="https://web.whatsapp.com" target="blank" >Whatsapp</a>
+                                    <img class="ico" src=" {% static 'img/icons8-whatsapp.gif' %} " width="20px" />
+                                    <a class="nav-link"><a class="colti" href="https://twitter.com" target="blank">twitter</a>
+                                    <img class="ico" src=" {% static 'img/icons8-twitter.gif' %} " width="30px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

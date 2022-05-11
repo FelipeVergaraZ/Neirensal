@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIKI - ED</title>
+    <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/bootstrap.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/video.css' %} " rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    @font-face {
+        font-family: Fuentechida;
+        src: url(fonts/OleoScript-Regular.ttf);
+    }
+    
+    .formulario {
+        transition: 2s;
+        margin-top: 100px;
+        width: 30%;
+        box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+        background: rgba(122, 126, 129, 0.671);
+        ;
+    }
+    
+    .formulario:hover {
+        transition: .8s;
+        background-color: rgba(219, 219, 219, 0.671);
+    }
+    
+    .logo {
+        height: 75px;
+        margin-top: 40px;
+    }
+    
+    .espaciado {
+        margin-top: 40px;
+    }
+    
+    fieldset {
+        transition: 2s;
+        margin-bottom: 50px;
+        border-color: #4CAF50;
+        border-style: groove;
+        border-width: 5px;
+        border-radius: 20px;
+    }
+    
+    h3,
+    h4 {
+        color: white;
+        text-align: center;
+        font-family: fuentechida;
+    }
+    
+    .Input {
+        transition: .8s;
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+        border-color: #006;
+        border-bottom-color: white;
+        border-bottom-style: groove;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-width: 4px;
+    }
+    
+    .Input:hover {
+        transition: .8s;
+        background-color: rgba(55, 71, 79, .5);
+        box-shadow: inset;
+        border-bottom-color: #4CAF50;
+    }
+    
+    .Input:focus {
+        transition: .8s;
+        border-bottom-color: #4CAF50;
+    }
+    
+    @media screen and (max-width:750px) {
+        .logo {
+            height: 50px;
+        }
+        .formulario {
+            transition: 2s;
+            width: 95%;
+            margin-top: 10px;
+        }
+    }
+    
+    .marcoinicio {
+        width: 100%;
+    }
+    
+    .cuartiaria {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+</style>
+
+
+<body>
+    <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <source src="https://giant.gfycat.com/LazyOddAgama.webm">
+        </video>
+    <div class="container formulario">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4  ">
+                <img src="{% static 'img/icons_logo.png' %}" width="120" height="150" class="logo center-block">
+            </div>
+        </div>
+        <div class=" espaciado">
+        </div>
+        <div class="row">
+            <fieldset class="col-xs-10 col-xs-offset-1">
+                <legend class="hidden-xs">
+                    <h3>INICIAR SESION</h3>
+                </legend>
+                {% block content %}
+                <form class="form" method="post" class="marcoinicio form-horizontal ">
+                    <div class="text-blanco col-xs-12">
+                        {% csrf_token %} {{ form.as_p }}
+                    </div>
+                    <button type="submit" id="submit">Registrarse</button> {% endblock %}
+                    <br>
+
+                </form>
+                <div class="form-group">
+
+                    <br>
+                    <a class="blanco btn btn-info center-block" role="button " href="{% url 'register' %}"> Crear Usuario </a>
+                    <hr>
+                    <a class="blanco btn btn-primary center-block" role="button " href="{% url 'social:begin' 'facebook' %}">Iniciar con facebook</a>
+                    <hr>
+                    <a class="blanco btn btn-danger center-block" role="button " href="{% url 'social:begin' 'google-oauth2' %}">Iniciar con google</a>
+                    <hr>
+                    <a type="submit" class="blanco btn btn-primary center-block" role="button " id="enviar" value="modificar" href="{% url 'home' %}"> Volver </a>
+                </div>
+                <br>
+            </fieldset>
+
+        </div>
+    </div>
+    <br>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<table border="1" class="">
+    <h1 class=" ">LISTA DE PRODUCTOS</h1>
+    <thead>
+        <tr>
+            <th cope="col">Imagen</th>
+            <th cope="col">Id de producto</th>
+            <th cope="col">Nombre del producto</th>
+            <th cope="col">Stock del producto</th>
+            <th cope="col">Precio del producto</th>
+            <th cope="col">Modificar</th>
+            <th cope="col">Eliminar</th>
+        </tr>
+    </thead>
+    {% extends 'xartgord/registro.html' %} {% block content %} {% for mer in registro%}
+    <section>
+        <tr>
+            <td>{{mer.Rut }}</td>
+            <td>{{mer.Contra | capfirst}}</td>
+            <td>{{mer.Nombre}}</td>
+            <td>${{mer.Apellidos}}</td>
+            <td><a class="verdeeditar" href="{% url 'form_modifimerca' mer.idproducto  %}">Modificar</a></td>
+            <td><a class="rojoeliminar" href="{% url 'form_eliminar' mer.idproducto  %}">elimimar</a></td>
+        </tr>
+    </section>
+    {% endfor%} {% endblock %}

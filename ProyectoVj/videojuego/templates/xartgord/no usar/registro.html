@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIKI - ED</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://icons8.com/icon/ZRiAFreol5mE/instagram">
+    <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/video.css' %} " rel="stylesheet">
+
+</head>
+
+<body>
+    <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <source src="https://giant.gfycat.com/LazyOddAgama.webm">
+        </video>
+    <header class="menu-fixed">
+        <div class="bordmenu">
+            <script src="{% static 'java/script.js' %}"></script>
+            <div class="topnav " id="myTopnav">
+                <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
+                <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
+                <a class="indemenu" href="{% url 'items' %}">ITEMS</a>
+                <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
+                <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
+                <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
+                <a class="inicioderecha" href="{% url 'cuenta' %}">iniciar secion</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <style>
+        @font-face {
+            font-family: Fuentechida;
+            src: url(fonts/OleoScript-Regular.ttf);
+        }
+        
+        .formulario {
+            transition: 2s;
+            margin-top: 50px;
+            width: 50%;
+            text-align: center;
+            padding: 50px;
+            box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+            background: rgba(7, 7, 7, 0.89);
+            ;
+        }
+        
+        .formomar {
+            width: 100%;
+            background: rgb(255, 255, 255);
+            padding: 10px;
+            color: inherit;
+            overflow: hidden;
+            text-align: left;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+            border: 5px solid #246355;
+        }
+        
+        .formomar4 {
+            background: rgb(255, 255, 255);
+            text-align: center;
+            margin-bottom: -5px;
+            border: 5px solid #246355;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            width: 100%;
+        }
+        
+        .marcoinicio {
+            width: 100%;
+        }
+    </style>
+    <br>
+    <section>
+
+        <div class="container">
+            <div class="container">
+                <form method="post" action="" id="formulario" class="container formomar4 ">
+                    <h1 class=" ">REGISTRAR USUARIO</h1>
+                    <br> {% csrf_token %}
+                    <div class="form_group">
+                        {{ form.as_table }}
+                    </div>
+                    <input type="submit" class="btn btn-success btn-l" id="agregar" value="Registrar">
+                    <a href="{% url 'cuenta' %}" class="btn center btn-danger btn-l" id="cancelar" name="cancelar">Volver</a>
+                    <input type="reset" class="btn btn-primary btn-l" id="limnpiar" value="Limpiar">
+                    <div id="error" class="alert-success" role="alert">
+                        {% if messages %} {% for message in messages %}
+                        <div class="notification {{ message.tags}}">
+                            {{ message }}
+                        </div>
+                        {% endfor %} {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>

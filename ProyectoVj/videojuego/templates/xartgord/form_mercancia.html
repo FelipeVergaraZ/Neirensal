@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIKI - ED</title>
+    <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/bootstrap.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/video.css' %} " rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    @font-face {
+        font-family: Fuentechida;
+        src: url(fonts/OleoScript-Regular.ttf);
+    }
+    
+    .formulario {
+        transition: 2s;
+        margin-top: 50px;
+        width: 50%;
+        text-align: center;
+        padding: 50px;
+        box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+        background: rgba(7, 7, 7, 0.89);
+        ;
+    }
+    
+    .formomar {
+        width: 100%;
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        color: inherit;
+        overflow: hidden;
+        text-align: left;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+    }
+    
+    .formomar2 {
+        margin-top: 0px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.767);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border: 5px solid #246355;
+    }
+    
+    .formomar3 {
+        width: 40%;
+        background: rgb(255, 255, 255);
+    }
+    
+    .formomar4 {
+        background: rgb(255, 255, 255);
+        text-align: center;
+        margin-bottom: -5px;
+        border: 5px solid #246355;
+    }
+    
+    .formulario:hover {
+        transition: .8s;
+        background-color: rgba(255, 255, 255, 0.671);
+    }
+    
+    .espaciado {
+        margin-top: 40px;
+    }
+    
+    fieldset {
+        transition: 2s;
+        margin-bottom: 50px;
+        border-color: #4CAF50;
+        border-style: groove;
+        border-width: 5px;
+        border-radius: 20px;
+    }
+    
+    h3,
+    h4 {
+        color: white;
+        text-align: center;
+        font-family: fuentechida;
+    }
+    
+    .Input {
+        transition: .8s;
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+        border-color: #006;
+        border-bottom-color: white;
+        border-bottom-style: groove;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-width: 4px;
+    }
+    
+    .Input:hover {
+        transition: .8s;
+        background-color: rgba(55, 71, 79, .5);
+        box-shadow: inset;
+        border-bottom-color: #4CAF50;
+    }
+    
+    .Input:focus {
+        transition: .8s;
+        border-bottom-color: #4CAF50;
+    }
+    
+    @media screen and (max-width:750px) {
+        .logo {
+            height: 50px;
+        }
+        .formulario {
+            transition: 2s;
+            width: 95%;
+            margin-top: 10px;
+        }
+    }
+    
+    .marcoinicio {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <source src="https://giant.gfycat.com/LazyOddAgama.webm">
+        </video>
+    <header class="menu-fixed">
+        <div class="bordmenu">
+            <script src="{% static 'java/script.js' %}"></script>
+            <div class="topnav " id="myTopnav">
+                <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
+                <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
+                <a class="indemenu" href="{% url 'items' %}">ITEMS</a>
+                <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
+                <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
+                <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
+                <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
+                    <a class="indemenu" href="{% url 'form_mercancia' %}">LISTA PRODUCTO</a> {% endif %}
+                </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <a class="inicioderecha" href="{% url 'logout' %}">cerrar secion</a> {% else %}
+                    <a class="inicioderecha" href="{% url 'loginn' %}">iniciar secion</a> {% endif %}
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <section class="container">
+
+        <div id="error" class="alert-success" role="alert">
+            {% if messages %} {% for message in messages %}
+            <div class=" notification {{ message.tags}}">
+                <h1>{{ message }}</h1>
+            </div>
+            {% endfor %} {% endif %}
+        </div>
+
+        <table border="1" class="">
+            <h1 class=" formomar4">LISTA DE PRODUCTOS</h1>
+            <thead>
+                <tr>
+                    <th cope="col">Imagen</th>
+                    <th cope="col">Id de producto</th>
+                    <th cope="col">Nombre del producto</th>
+                    <th cope="col">Stock del producto</th>
+                    <th cope="col">Precio del producto</th>
+                    <th cope="col">Modificar</th>
+                    <th cope="col">Eliminar</th>
+                </tr>
+            </thead>
+            {% for mer in mercancia%}
+            <section>
+
+                <tr>
+                    {% if mer.imagen %}
+                    <td><img src="{{mer.imagen.url }}" alt="" width="100" height="100"></td>
+                    {% endif %}
+
+                    <td>{{mer.idproducto }}</td>
+                    <td>{{mer.nombreproducto | capfirst}}</td>
+                    <td>{{mer.stockproducto}}</td>
+                    <td>${{mer.precioproducto}}</td>
+                    <td><a class="verdeeditar" href="{% url 'form_modifimerca' mer.idproducto  %}">Modificar</a></td>
+                    <td><a class="rojoeliminar" href="{% url 'form_eliminar' mer.idproducto  %}">elimimar</a></td>
+                </tr>
+            </section>
+            {% endfor%}
+
+        </table>
+        <h1 class=" formomar4">AGREGAR PRODUCTOS</h1>
+    </section>
+
+
+    <section class="container">
+        <div class="">
+            <div class="formomar2">
+                <form enctype="multipart/form-data" method="post" action="" id=formulario class="container formomar3 ">
+                    <div class="formomar">
+                        {% csrf_token%} {{form.as_table}}
+
+                        <br>
+                        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                        <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                        <div id="error" class="alert alert-succes" role="alert">
+                        </div>
+                        {{mensaje}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <hr class="bordhr">
+    <br>
+
+    <div class="jumbotronfinal">
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="text-center ">Xatgord 2021&nbsp;© Xatgord 2021</p>
+                <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
+                <br>
+                <div class="iconoo">
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
+                </div>
+                <div class="container">
+                    <div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="p-5">
+                                    <a class="nav-link"><a class="colti" href="https://www.instagram.com/?hl=es-la"  target="blank">Instragram</a>
+                                    <img class="ico" src=" {% static 'img/icons8-instagram.gif' %} " width="30px" />
+                                    <a class="nav-link"><a class="colti" href="https://www.facebook.com" target="blank" >Facebook</a>
+                                    <img class="ico" src=" {% static 'img/icons8-facebook-rodeado-de-círculo.gif'%}" width="30px" />
+                                    <a class="nav-link"><a class="colti" href="https://web.whatsapp.com" target="blank" >Whatsapp</a>
+                                    <img class="ico" src=" {% static 'img/icons8-whatsapp.gif' %} " width="20px" />
+                                    <a class="nav-link"><a class="colti" href="https://twitter.com" target="blank">twitter</a>
+                                    <img class="ico" src=" {% static 'img/icons8-twitter.gif' %} " width="30px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

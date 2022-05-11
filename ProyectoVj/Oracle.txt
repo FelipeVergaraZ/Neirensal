@@ -1,0 +1,3 @@
+create user VJ IDENTIFIED by oracle;
+grant connect, resource to  VJ;
+alter user VJ default tablespace users quota unlimited on users;
