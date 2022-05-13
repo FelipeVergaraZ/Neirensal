@@ -1,4 +1,5 @@
-(% load static %)
+{% load static %}
+
 
 <!DOCTYPE html>
 <html>
@@ -11,17 +12,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://icons8.com/icon/ZRiAFreol5mE/instagram">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
 </head>
 
-<body background="img/Duoc.jpg">
+<body background="{% static 'img/Duoc.jpg' %}">
     <header class="menu-fixed">
         <div class="bordmenu">
             <script src="java/script.js"></script>
             <div class="topnav" id="myTopnav">
-                <a href="index.html" class="active"><img src="{% static 'core/img/Logo_DuocUC.png'%}" width="25px"> Neirensal</a>
+                <a href="{% url 'home' %}" class="active"><img src=" {% static 'img/Logo_DuocUC.png' %} " alt="" width="25px"> Neirensal</a>
                 <a href="index1.html">index1</a>
                 <a href="index2.html">index2</a>
                 <a href="index3.html">index3</a>
@@ -40,7 +40,7 @@
             <div class="jumbotron">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/nosotres.png"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
