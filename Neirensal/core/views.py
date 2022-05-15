@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect,render, HttpResponse
 from Neirensal.core.Carrito import Carrito
 from Neirensal.core.models import Producto
 
