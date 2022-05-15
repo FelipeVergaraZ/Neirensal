@@ -20,8 +20,10 @@ from core.views import agregar_producto, eliminar_producto, limpiar_carrito, res
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path('',tienda , name="Tienda"),
     path('',home,name="home"),
-    path('',tienda , name="tienda"),
+
     #path ('' , include ('core.urls')),
     path('agregar/<int:producto_id>/', agregar_producto, name="Add"),
     path('eliminar/<int:producto_id>/', eliminar_producto, name="Del"),

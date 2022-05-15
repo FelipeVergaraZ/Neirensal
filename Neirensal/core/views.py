@@ -10,7 +10,7 @@ def home (request):
 def tienda(request):
     #return HttpResponse("Hola Pythonizando")
     productos = Producto.objects.all()
-    return render(request, "tienda.html", {'productos':productos})
+    return render(request, "core/tienda.html", {'productos':productos})
 
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
