@@ -1,6 +1,6 @@
-from django.shortcuts import redirect,render, HttpResponse
-from Neirensal.core.Carrito import Carrito
-from Neirensal.core.models import Producto
+from django.shortcuts import redirect, render, HttpResponse
+from core.Carrito import Carrito
+from core.models import Producto
 
 # Create your views here.
 
