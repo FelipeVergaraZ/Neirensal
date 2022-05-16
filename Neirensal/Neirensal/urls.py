@@ -20,9 +20,9 @@ from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,hom
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
-    path('',tienda , name="tienda"),
     path('',home ,name="home"),
+    path('',tienda , name="tienda"),
+    
     path('',correo, name="correo"),
 
     path('agregar/<int:producto_id>/', agregarP, name="Agg"),

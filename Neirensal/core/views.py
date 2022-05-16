@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, HttpResponse
 from core.Carrito import Carrito
-from core.models import Producto
+from core.models import Producto, Remedio
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
@@ -8,7 +8,12 @@ from django.conf import settings
 # Create your views here.
 
 def home (request):
-    return render(request, 'core/home.html')
+    #return render(request, 'core/home.html') 
+    remedios= Remedio.objects.all()
+    datos = {
+        'remedios': remedios
+    }
+    return render(request, 'core/home.html', datos)
 
 def correo (request):
     return render(request, 'core/correo.html')

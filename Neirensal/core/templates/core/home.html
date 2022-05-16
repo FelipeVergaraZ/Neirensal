@@ -22,9 +22,7 @@
             <script src="java/script.js"></script>
             <div class="topnav" id="myTopnav">
                 <a href="{% url 'home' %}" class="active"><img src=" {% static 'img/Logo_DuocUC.png' %} " alt="" width="25px"> Neirensal</a>
-                <a href="index1.html">index1</a>
-                <a href="index2.html">index2</a>
-                <a href="index3.html">index3</a>
+                <a href="">Tienda</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -39,16 +37,17 @@
         <article>
             <div class="jumbotron">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
+                    <div class="col-lg-6 order-lg-1">
                         <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Neirensal</h2>
-                            <p>Neirensal index.
-
-
-                            </p>
+                            <table border=1>
+                                <tr><td>nombreRemedio</td> <td>precio</td> <td>descripcion</td> </tr>
+                                {% for ve in remedios %}
+                                    <tr><td>{{ve.nombreRemedio}}</td><td> {{ve.precio}}</td><td>{{ve.descripcion}}</td></tr>
+                                {% endfor %}
+                            </table>
                         </div>
                     </div>
                 </div>
