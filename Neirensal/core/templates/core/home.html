@@ -53,8 +53,25 @@
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <article>
+                    <div class="jumbotron">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="p-5">
+                                    <table border=1>
+                                        <tr><td>nombreRemedio</td><td>precio</td><td>descripcion</td></tr>
+                                        {% for ve in remedios %}
+                                        <tr><td>{{ve.nombreRemedio}}</td><td> {{ve.precio}}</td><td>{{ve.descripcion}}</td></tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </article>
     </div>
+    
     <br>
     <div class="jumbotronfinal">
         <footer class="py-5 bg-black">
