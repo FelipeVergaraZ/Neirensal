@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,3 +135,10 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'paramipapota@gmail.com'
 EMAIL_HOST_PASSWORD = '789852159nm'
 EMAIL_USE_TLS = True
+
+#Inicialisando variables enviroment
+env = environ.Env()
+environ.Env.read_env()
+
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')

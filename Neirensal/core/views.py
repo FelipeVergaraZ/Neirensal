@@ -5,6 +5,8 @@ from core.models import Producto, Remedio
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
+from twilio.rest import Client
+from Neirensal.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 def home (request):
     #return render(request, 'core/home.html') 
@@ -62,3 +64,27 @@ def send_email(mail):
     email.attach_alternative(content,'text/html')
     email.send()
 
+order_details = {
+    'amount': '5kg',
+    'item': 'Tomatoes',
+    'date_of_delivery': '03/04/2021',
+    'address': 'No 1, Ciroma Chukwuma Adekunle Street, Ikeja, Lagos'
+}
+
+def send_notification(request):
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+
+    if request.method == 'POST':
+        user_whatsapp_number = request.POST['user_number']
+
+        message = client.messages.create(
+            from_='whatsapp:+14155238886',
+            body='Mensaje enviado de Mon, avisame si llego xd',
+            to='whatsapp:+{}'.format(user_whatsapp_number)
+        )
+
+        print(user_whatsapp_number)
+        print(message.sid)
+        return HttpResponse('Great! Expect a message...')
+
+    return render(request, 'phone.html')
