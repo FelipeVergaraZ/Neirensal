@@ -15,16 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home ,name="home"),
     path('',tienda , name="tienda"),
-    
-    path('',correo, name="correo"),
-
+    path('',correo, name="correo"),  
     path('agregar/<int:producto_id>/', agregarP, name="Agg"),
     path('eliminar/<int:producto_id>/', eliminarP, name="Ell"),
     path('restar/<int:producto_id>/', restarP, name="Sub"),

@@ -22,7 +22,7 @@
             <script src="java/script.js"></script>
             <div class="topnav" id="myTopnav">
                 <a href="{% url 'home' %}" class="active"><img src=" {% static 'img/Logo_DuocUC.png' %} " alt="" width="25px"> Neirensal</a>
-                <a href="">Tienda</a>
+                <a href="http://127.0.0.1:8000/Tienda.html">Tienda</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -43,11 +43,17 @@
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
                             <table border=1>
-                                <tr><td>nombreRemedio</td> <td>precio</td> <td>descripcion</td> </tr>
+                                <tr>
+                                    <td>nombreRemedio</td> 
+                                    <td>precio</td> 
+                                    <td>descripcion</td> 
+                                </tr>
                                 {% for ve in remedios %}
                                     <tr><td>{{ve.nombreRemedio}}</td><td> {{ve.precio}}</td><td>{{ve.descripcion}}</td></tr>
                                 {% endfor %}
                             </table>
+                        
+
                         </div>
                     </div>
                 </div>
