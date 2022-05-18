@@ -19,12 +19,13 @@
 <body background="{% static 'img/Duoc.jpg' %}">
     <header class="menu-fixed">
         <div class="bordmenu">
-            <script src="java/script.js"></script>
+            <script src=" {% static 'java/script.js' %} "></script>
             <div class="topnav" id="myTopnav">
                 <a href="{% url 'home' %}" class="active"><img src=" {% static 'img/Logo_DuocUC.png' %} " alt="" width="25px"> Neirensal</a>
-                <a href="index1.html">index1</a>
-                <a href="index2.html">index2</a>
-                <a href="index3.html">index3</a>
+                <a class="indemenu" href="{% url 'tienda' %}">Tienda</a>
+                <a class="indemenu" href="{% url 'stock' %}">stock</a>
+                <a class="indemenu" href="{% url 'correo' %}">correo</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -34,21 +35,39 @@
 
     <header class="masthead text-center text-white">
     </header>
+
+
+    <section>
+        <div class="container">
+            <div class="jumbotronblack ">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/st.jpg' %}"></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h3 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'prescripcion' %}">prescripcion</a></h3>
+                            <p>Lorem ipsum dolorr sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
+                                obcaecati.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <br>
     <div class="container">
         <article>
             <div class="jumbotron">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
+                    <div class="col-lg-6 order-lg-1">
                         <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Neirensal</h2>
-                            <p>Neirensal index.
 
-
-                            </p>
                         </div>
                     </div>
                 </div>
