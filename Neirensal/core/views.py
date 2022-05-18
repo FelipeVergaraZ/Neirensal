@@ -16,11 +16,6 @@ def home (request):
     }
     return render(request, 'core/home.html', datos)
 
-<<<<<<< HEAD
-def correo (request):
-    return render(request, 'core/correo.html')
-
-=======
 def stock (request):
     remedios= Remedio.objects.all()
     datos = {
@@ -35,7 +30,6 @@ def prescripcion (request):
     return render(request, 'core/prescripcion.html')
     
 
->>>>>>> Felipe
 def tienda(request):
     if request.method == 'POST':
         mail = request.POST.get('mail')
@@ -44,28 +38,28 @@ def tienda(request):
     return render(request, "core/tienda.html", {'productos':productos})
 
 
-def agregarP(request, producto_id):
+def agregarP(request, id_remedio):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id=producto_id)
+    producto = Producto.objects.get(id=id_remedio)
     carrito.agregar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def eliminarP(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.eliminar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def restarP(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.restar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def limpiarC(request):
     carrito = Carrito(request)
     carrito.limpiar()
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def send_email(mail):
     context = {'mail': mail}

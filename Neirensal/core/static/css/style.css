@@ -648,20 +648,6 @@ input:focus:invalid {
     width: 100%;
 }
 
-<<<<<<< HEAD
-/*Cambios de Mon para implementacion de carrito*/
-
-body{
-    font-family:'Segoe UI', 'consolas';
-}
-.container {
-    flex-direction: 'row', 'row-reverse', 'column' ,'column-reverse';
-}
-
-.display-1{
-    background: #1e96fc;
-    color: white;
-=======
 
 /*producto*/
 
@@ -857,5 +843,4 @@ h4 {
 
 .marcoinicio {
     width: 100%;
->>>>>>> Felipe
 }
