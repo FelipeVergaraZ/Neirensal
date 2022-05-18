@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,home,send_notification
 
 urlpatterns = [
@@ -24,6 +25,18 @@ urlpatterns = [
     
     path('',correo, name="correo"),  
     path('agregar/<int:producto_id>/', agregarP, name="Agg"),
+=======
+from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,home,send_notification,stock,prescripcion
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',home ,name="home"),
+    path('stock',stock , name="stock"),
+    path('tienda',tienda , name="tienda"),
+    path('correo',correo, name="correo"), 
+    path('prescripcion',prescripcion, name="prescripcion"), 
+    path('agregar/<int:id_remedio>/', agregarP, name="Agg"),
+>>>>>>> Felipe
     path('eliminar/<int:producto_id>/', eliminarP, name="Ell"),
     path('restar/<int:producto_id>/', restarP, name="Sub"),
     path('limpiar/', limpiarC, name="CLS"),

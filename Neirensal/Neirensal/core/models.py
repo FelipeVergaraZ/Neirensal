@@ -1,18 +1,7 @@
 from tabnanny import verbose
-
 from django.db import models
 
 # Create your models here.
-
-class Producto(models.Model):
-    id = models.AutoField(max_length=3, primary_key= True)
-    nombre = models.CharField(max_length=64)
-    categoria = models.CharField(max_length=32)
-    precio = models.IntegerField()
-    
-
-    def __str__(self):
-        return f'{self.nombre} -> {self.precio}'
 
 #Modelo para categoria
 class Categoria(models.Model):
@@ -29,16 +18,8 @@ class Remedio(models.Model):
     nombreRemedio = models.CharField(max_length=50, verbose_name='Nombre remedio')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     precio = models.CharField(max_length=20, verbose_name='Precio remedio')
-<<<<<<< HEAD
-    marca =  models.CharField(max_length=20, verbose_name='Laboratorio')
+    marca =  models.CharField(max_length=20, verbose_name='Marca remedio')
     descripcion =  models.CharField(max_length=20, verbose_name='Descripcion remedio')
-
-=======
-    stock = models.CharField(max_length=20, verbose_name='stock')
-    marca =  models.CharField(max_length=20, verbose_name='Laboratorio')
-    descripcion =  models.CharField(max_length=20, verbose_name='Descripcion remedio')
-
-
->>>>>>> Felipe
+    
     def __str__(self):
-        return self.nombreRemedio 
+        return self.nombreRemedio

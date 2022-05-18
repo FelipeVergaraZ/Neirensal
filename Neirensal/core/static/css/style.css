@@ -1,12 +1,34 @@
 /* MENU */
 
+.indemenu {
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 200px;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+}
+
+.indemenu:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.bottoncolor {
+    color: rgb(248, 248, 248);
+    background: #4CAF50;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
-
 }
 
 .topnav {
@@ -30,7 +52,7 @@ body {
 }
 
 .topnav a.active {
-    background-color: #686868;
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -81,6 +103,7 @@ body {
 
 .bordmenu {
     border-style: solid;
+    width: 100%;
 }
 
 .pepe {
@@ -95,6 +118,21 @@ body {
 
 .jumbotron {
     padding: 3px 10px;
+    border: 5px solid #246355;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    color: inherit;
+    background-color: rgba(51, 51, 51, 0.883);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.jumbotronblack {
+    padding: 3px 10px;
     border: rgb(0, 0, 0) 5px solid;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -103,7 +141,57 @@ body {
     padding-left: 30px;
     margin-bottom: 40px;
     color: inherit;
-    background-color: rgba(255, 255, 255, 0.77);
+    background-color: rgba(224, 223, 223, 0.883);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.text-black {
+    color: #000;
+}
+
+.text-blanco {
+    color: rgb(255, 255, 255);
+}
+
+.jumbotron:hover {
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-3%);
+}
+
+.jumbotron1 {
+    padding: 3px 10px;
+    border: 5px solid #246355;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    color: inherit;
+    background-color: rgba(51, 51, 51, 0.883);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.jumbotron1black {
+    padding: 3px 10px;
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    color: inherit;
+    background-color: rgba(224, 223, 223, 0.883);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.jumbotron1:hover {
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-3%);
 }
 
 .iconoo {
@@ -118,19 +206,6 @@ body {
     position: relative;
     align-items: center;
     text-align: center;
-}
-
-.jumbotron1 {
-    padding: 3px 10px;
-    border: rgb(0, 0, 0) 5px solid;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding-top: 30px;
-    padding-bottom: 40px;
-    padding-left: 30px;
-    margin-bottom: 40px;
-    color: inherit;
-    background-color: #f5f5f5c5;
 }
 
 .jumbotronfinal {
@@ -175,6 +250,12 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.botonarmadura {
+    text-align: right;
+    align-items: right;
+    align-items: center;
+}
+
 .jumbotron4 {
     padding-left: 100px;
     padding-right: 100px;
@@ -191,6 +272,7 @@ body {
     border: rgb(0, 0, 0) 2px solid;
     color: inherit;
     background-color: rgb(255, 255, 255);
+    width: 100%;
 }
 
 .jumbotrontext {
@@ -339,23 +421,26 @@ input:focus:invalid {
     border: rgb(0, 0, 0) 5px double;
     color: inherit;
     overflow: hidden;
-    background-color: rgb(32, 32, 32);
-}
-
-.marcocontacto {
-    width: 100%;
-    border: rgb(0, 0, 0) 5px double;
-    color: inherit;
-    overflow: hidden;
-    background-color: rgba(73, 73, 73, 0.664);
+    background-color: rgb(131, 131, 131);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .blanco {
     width: 90%;
-    border: rgb(255, 255, 255) 5px;
+    border: rgb(0, 0, 0) 5px;
     color: inherit;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.blanco:hover {
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-3%);
 }
 
 .blancocel {
@@ -365,6 +450,13 @@ input:focus:invalid {
     color: inherit;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.blancocel:hover {
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-3%);
 }
 
 .botonenviar {
@@ -376,7 +468,15 @@ input:focus:invalid {
     border-bottom-right-radius: 20px;
     color: inherit;
     background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transition: all 400ms ease-out;
+    cursor: default;
+    padding: 10px;
+}
+
+.botonenviar:hover {
     box-shadow: 6px 10px 10px black;
+    transform: translateY(-5%);
 }
 
 .jumbotron00 {
@@ -392,7 +492,7 @@ input:focus:invalid {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     color: inherit;
-    background-color: #fafafa8e;
+    background-color: rgba(51, 51, 51, 0.883);
 }
 
 
@@ -410,6 +510,7 @@ input:focus:invalid {
     padding-bottom: 50px;
     color: inherit;
     background-color: rgba(0, 0, 0, 0.77);
+    border: 5px solid #246355;
 }
 
 .sobreene {
@@ -547,6 +648,7 @@ input:focus:invalid {
     width: 100%;
 }
 
+<<<<<<< HEAD
 /*Cambios de Mon para implementacion de carrito*/
 
 body{
@@ -559,4 +661,201 @@ body{
 .display-1{
     background: #1e96fc;
     color: white;
+=======
+
+/*producto*/
+
+table {
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #246355;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td {
+    background-color: #369681;
+    color: white;
+}
+
+.titulotabla {
+    text-align: center;
+}
+
+.jumbotronblack2 {
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: inherit;
+    background-color: rgba(224, 223, 223, 0.883);
+    width: 100%;
+    padding: 40px;
+}
+
+.rojoeliminar {
+    color: #900;
+}
+
+.verdeeditar {
+    color: rgb(22, 177, 2);
+}
+
+.inicioderecha {
+    position: relative;
+    text-align: right
+}
+
+.formomarco {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.listaproducto {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.notification {
+    width: 100%;
+    text-align: center;
+}
+
+@font-face {
+    font-family: Fuentechida;
+    src: url(fonts/OleoScript-Regular.ttf);
+}
+
+.formulario {
+    transition: 2s;
+    margin-top: 50px;
+    width: 50%;
+    text-align: center;
+    padding: 50px;
+    box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+    background: rgba(7, 7, 7, 0.89);
+    ;
+}
+
+.formomar {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    color: inherit;
+    overflow: hidden;
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 0px 0px 40px #4CAF50, 0px 0px 80px rgba(256, 256, 256, 1);
+}
+
+.formomar2 {
+    margin-top: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.767);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 5px solid #246355;
+}
+
+.formomar3 {
+    width: 40%;
+    background: rgb(255, 255, 255);
+}
+
+.formomar4 {
+    background: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: -5px;
+    border: 5px solid #246355;
+}
+
+.formulario:hover {
+    transition: .8s;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+
+.espaciado {
+    margin-top: 40px;
+}
+
+fieldset {
+    transition: 2s;
+    margin-bottom: 50px;
+    border-color: #4CAF50;
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+h3,
+h4 {
+    color: white;
+    text-align: center;
+    font-family: fuentechida;
+}
+
+.Input {
+    transition: .8s;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    border-color: #006;
+    border-bottom-color: white;
+    border-bottom-style: groove;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-width: 4px;
+}
+
+.Input:hover {
+    transition: .8s;
+    background-color: rgba(55, 71, 79, .5);
+    box-shadow: inset;
+    border-bottom-color: #4CAF50;
+}
+
+.Input:focus {
+    transition: .8s;
+    border-bottom-color: #4CAF50;
+}
+
+@media screen and (max-width:750px) {
+    .logo {
+        height: 50px;
+    }
+    .formulario {
+        transition: 2s;
+        width: 95%;
+        margin-top: 10px;
+    }
+}
+
+.marcoinicio {
+    width: 100%;
+>>>>>>> Felipe
 }

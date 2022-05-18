@@ -16,9 +16,26 @@ def home (request):
     }
     return render(request, 'core/home.html', datos)
 
+<<<<<<< HEAD
 def correo (request):
     return render(request, 'core/correo.html')
 
+=======
+def stock (request):
+    remedios= Remedio.objects.all()
+    datos = {
+        'remedios': remedios
+    }
+    return render(request, 'core/stock.html', datos)
+
+def correo (request):
+    return render(request, 'core/correo.html')
+
+def prescripcion (request):
+    return render(request, 'core/prescripcion.html')
+    
+
+>>>>>>> Felipe
 def tienda(request):
     if request.method == 'POST':
         mail = request.POST.get('mail')
