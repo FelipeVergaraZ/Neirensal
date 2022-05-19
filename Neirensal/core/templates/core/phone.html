@@ -1,13 +1,13 @@
-{% extends "base.html" %}
-{% block title %}Customer WhatsApp Notification{% endblock %}
+{% extends "core/base.html" %}
+
 
 {% block content %}
-    <h1>Submit WhatsApp Contact</h1>
+    <h5>Número de contacto</h5>
 
-    <form action="/" method="post">
+    <form action="/" method="POST">
         {% csrf_token %}
-        <label for="your_name">Your WhatsApp number: </label> 
-        <input id="user_number" type="text" name="user_number" >
+        <label for="your_name">Ingrese su número telefónico: </label> 
+        <input id="num_usuario" type="text" name="num_usuario" placeholder="569XXXXXXXX" >
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
