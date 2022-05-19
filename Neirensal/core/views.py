@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import redirect, render, HttpResponse
 from core.Carrito import Carrito
-from core.models import Producto, Remedio
+from core.models import Producto
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
@@ -10,16 +10,16 @@ from Neirensal.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 def home (request):
     #return render(request, 'core/home.html') 
-    remedios= Remedio.objects.all()
+    productos= Producto.objects.all()
     datos = {
-        'remedios': remedios
+        'productos': productos
     }
     return render(request, 'core/home.html', datos)
 
 def stock (request):
-    remedios= Remedio.objects.all()
+    productos= Producto.objects.all()
     datos = {
-        'remedios': remedios
+        'productos': productos
     }
     return render(request, 'core/stock.html', datos)
 
@@ -42,24 +42,24 @@ def agregarP(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def eliminarP(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.eliminar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def restarP(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.restar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def limpiarC(request):
     carrito = Carrito(request)
     carrito.limpiar()
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def send_email(mail):
     context = {'mail': mail}

@@ -39,13 +39,10 @@
     <div class="container">
         <article>
             <div class="jumbotron">
-                <div class="row align-items-center">
+                <div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}"></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
 
+                    </div>
 
                             
                             <table border="1" class="customers">
@@ -53,21 +50,27 @@
                                 <thead>
                                     <tr>
                                         <th cope="col">Id de producto</th>
+                                        <th cope="col">Descripcion del producto</th>
+                                        <th cope="col">Laboratorio del producto</th>
                                         <th cope="col">Nombre del producto</th>
-                                        <th cope="col">Stock del producto</th>
                                         <th cope="col">Precio del producto</th>
+                                        <th cope="col">Stock del producto</th>
+                                        <th cope="col">Estado</th>
 
                                     </tr>
                                 </thead>
-                                {% for re in remedios%}
+                                {% for re in productos%}
                                 <section>
                     
                                     <tr>
                     
-                                        <td>{{re.id_remedio }}</td>
-                                        <td>{{re.nombreRemedio | capfirst}}</td>
-                                        <td>{{re.stock}}</td>
+                                        <td>{{re.id }}</td>
+                                        <td>{{re.descripcion }}</td>
+                                        <td>{{re.marca }}</td>
+                                        <td>{{re.nombre | capfirst}}</td>
                                         <td>${{re.precio}}</td>
+                                        <td>{{re.stock}}</td>
+                                        <td>{{re.estado}}</td>
                                     </tr>
                                 </section>
                                 {% endfor%}
