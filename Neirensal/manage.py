@@ -20,3 +20,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+#Informacion de admin en django
+#user : admin
+#pass: 789852159nm
