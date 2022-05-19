@@ -79,25 +79,18 @@
     
             
 
-
-            <section>
-
-
-            <div class="jumbotronblack">
-                {% include "core/phone.html" %}
-  
-            </div>
-
-            </section>
-
             <div class="jumbotronblack">
 
-                            <div class="col-4">
-                                <h2>Enviar Correo</h2>
-                                    <form action="#" method="POST">
+                            <div>
+                                    <form class="formomar3" action="#" method="POST">
                                         {% csrf_token %}
-                                        <input type="text" name="mail" placeholder="micorreo@ejemplo.com">
+                                        <label id="rapidito" for="mail">Escriba su correo: </label> 
+                                        <input type="text" id="mail" name="mail" placeholder="micorreo@ejemplo.com">
                                         <input style="font-size: 26px;" type="submit" value="enviar">
+
+                                        <label id= "rapidito" for="user_number">Escriba su numero de WhatsApp: </label> 
+                                        <input id="user_number" type="text" name="user_number" placeholder="569xxxxxxxx">
+                                        <input id="user_number" class="btn btn-dark" type="submit" value="enviar">
                                     </form>
                             </div>
                         </div>
