@@ -1,25 +1,26 @@
 from re import template
 from django.shortcuts import redirect, render, HttpResponse
 from core.Carrito import Carrito
-from core.models import Producto, Remedio
+from core.models import Producto
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from twilio.rest import Client
 from Neirensal.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from .forms import ProductoForm
 
 def home (request):
     #return render(request, 'core/home.html') 
-    remedios= Remedio.objects.all()
+    productos= Producto.objects.all()
     datos = {
-        'remedios': remedios
+        'productos': productos
     }
     return render(request, 'core/home.html', datos)
 
 def stock (request):
-    remedios= Remedio.objects.all()
+    productos= Producto.objects.all()
     datos = {
-        'remedios': remedios
+        'productos': productos
     }
     return render(request, 'core/stock.html', datos)
 
@@ -38,9 +39,9 @@ def tienda(request):
     return render(request, "core/tienda.html", {'productos':productos})
 
 
-def agregarP(request, id_remedio):
+def agregarP(request, producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id=id_remedio)
+    producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
     return redirect("tienda")
 
@@ -96,7 +97,35 @@ def send_notification(request):
 
         print(user_whatsapp_number)
         print(message.sid)
-        return redirect("tienda")
-        #return HttpResponse('Great! Expect a message...')
+        return HttpResponse('Great! Expect a message...')
 
-    return render(request, 'core/phone.html')
+    return render(request, 'phone.html')
+
+def form_producto(request):
+    datos = {
+        'form': ProductoForm()
+    }
+    if request.method== 'POST':
+        formulario = ProductoForm(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Guardados correctamente"
+    return render(request, 'core/form_producto.html',datos)
+
+def form_mod_producto(request, id):
+    producto = Producto.objects.get(id=id)
+    datos = {
+        'form': ProductoForm(instance=producto)
+    }
+
+    if request.method== 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Modificados correctamente"
+    return render(request, 'core/form_mod_producto.html', datos)
+
+def form_del_producto(request, id):
+    producto = Producto.objects.get(id=id)
+    producto.delete()
+    return redirect(to="home")
