@@ -68,7 +68,7 @@ def send_email(mail):
     content = template.render(context)
 
     email = EmailMultiAlternatives(
-        'Un correo de prueba',
+        'Aviso de reserva de medicamentos.',
         'nada que hacer',
         settings.EMAIL_HOST_USER,
         [mail]
@@ -76,18 +76,18 @@ def send_email(mail):
     email.attach_alternative(content,'text/html')
     email.send()
 
-order_details = {
-    'amount': '5kg',
-    'item': 'Tomatoes',
-    'date_of_delivery': '03/04/2021',
-    'address': 'No 1, Ciroma Chukwuma Adekunle Street, Ikeja, Lagos'
-}
+#order_details = {
+    #'amount': '5kg',
+    #'item': 'Tomatoes',
+    #'date_of_delivery': '03/04/2021',
+    #'address': 'No 1, Ciroma Chukwuma Adekunle Street, Ikeja, Lagos'
+#}
 
 def send_notification(request):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
     if request.method == 'POST':
-        user_whatsapp_number = request.POST['user_number']
+        user_whatsapp_number = request.POST['num_usuario']
 
         message = client.messages.create(
             from_='whatsapp:+14155238886',

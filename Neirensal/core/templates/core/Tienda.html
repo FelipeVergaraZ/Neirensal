@@ -50,7 +50,7 @@
                     <tr>
                         <th cope="col">Nombre</th>
                         <th cope="col">Categoria</th>
-                        <th cope="col">Precio del producto</th>
+                        <th cope="col">Stock</th>
 
                     </tr>
                 </thead>
@@ -61,7 +61,7 @@
     
                         <td>{{producto.nombre}}</td>
                         <td>{{producto.categoria}}</td>
-                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
                     </tr>
                 </table>
                 <br>
@@ -84,19 +84,8 @@
 
 
             <div class="jumbotronblack">
-
-                {% block title %}Customer WhatsApp Notification{% endblock %}
-
-                {% block content %}
-                    <h1>Submit WhatsApp Contact</h1>
-                
-                    <form action="/" method="post">
-                        {% csrf_token %}
-                        <label for="your_name">Your WhatsApp number: </label> 
-                        <input id="user_number" type="text" name="user_number" >
-                        <input type="submit" value="Submit">
-                    </form>
-                {% endblock %}
+                {% include "core/phone.html" %}
+  
             </div>
 
             </section>
@@ -107,7 +96,7 @@
                                 <h2>Enviar Correo</h2>
                                     <form action="#" method="POST">
                                         {% csrf_token %}
-                                        <input type="text" name="mail" placeholder="demo@example.com">
+                                        <input type="text" name="mail" placeholder="micorreo@ejemplo.com">
                                         <input style="font-size: 26px;" type="submit" value="enviar">
                                     </form>
                             </div>
