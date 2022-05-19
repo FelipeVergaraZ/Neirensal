@@ -20,7 +20,7 @@
             <td>{{value.cantidad}}</td>
             <td>
               <a href="{% url 'Agg' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
-              <a href="{% url 'Ell' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+              <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
             </td>
           </tr>
         {% endfor %}
