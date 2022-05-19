@@ -54,20 +54,47 @@
     <br>
     <div class="container">
         <article>
-            <div class="jumbotronblack">
-                <div class="row">
-                    <form method="post" action="" id="formulario">
-                        {% csrf_token %}
-                        <div class="form-group">
-                        {{ form.as_table}}
+            <div class="jumbotron">
+                <div>
+                    <div class="col-lg-6 order-lg-1">
+
+                    </div>
+
+                            
+                            <table border="1" class="customers">
+                                <h1 class=" formomar4">LISTA DE PACIENTES</h1>
+                                <thead>
+                                    <tr>
+                                        <th cope="col">Nombre del Paciente</th>
+                                        <th cope="col">Correo del Paciente</th>
+                                        <th cope="col">Numero del Paciente</th>
+                                        <th cope="col">Diagnostico</th>
+                                        <th cope="col">Receta</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Eliminar</th>
+
+                                    </tr>
+                                </thead>
+                                {% for re in pacientes%}
+                                <section>
+                    
+                                    <tr>
+                    
+                                        <td>{{re.nombre | capfirst }}</td>
+                                        <td>{{re.correo }}</td>
+                                        <td>{{re.numero }}</td>
+                                        <td>{{re.diagnostico}}</td>
+                                        <td>{{re.receta}}</td>
+                                        <td><a href="{% url 'form_mod_paciente' re.numero %}">Modificar</a></td>
+                                        <td><a href="{% url 'form_mod_paciente' re.numero %}">Eliminar</a></td>
+                                    </tr>
+                                </section>
+                                {% endfor%}
+                            </table>
+                            <br>
+                            <a href="{% url 'form_paciente'%}">Nuevo Paciente</a>
+
                         </div>
-                        <br>
-                        <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
-                        <input type="rest" class="btn btn-primary" id="limpiar" value="Limpiar">
-                        <div id="error" class="alert alert-danger" role="alert"></div>
-                    </form>
-                    <div class="alert alert-success" role="alert">
-                        {{mensaje}}
                     </div>
                 </div>
             </div>

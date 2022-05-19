@@ -27,6 +27,13 @@ def stock (request):
     }
     return render(request, 'core/stock.html', datos)
 
+def stockmed (request):
+    productos= Producto.objects.all()
+    datos = {
+        'productos': productos
+    }
+    return render(request, 'core/stockmed.html', datos)
+
 def correo (request):
     return render(request, 'core/correo.html')
 
@@ -191,3 +198,10 @@ def pacientes (request):
         'pacientes': pacientes
     }
     return render(request, 'core/pacientes.html', datos)
+
+def pacientesmed (request):
+    pacientes = Paciente.objects.all()
+    datos = {
+        'pacientes': pacientes
+    }
+    return render(request, 'core/pacientesmed.html', datos)

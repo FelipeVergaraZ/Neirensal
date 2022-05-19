@@ -32,4 +32,4 @@ class PacienteForm(ModelForm):
 
     class Meta:
         model = Paciente
-        fields = ['nombre','correo','numero', 'diagnostico']
+        fields = ['nombre','correo','numero', 'diagnostico', 'receta']

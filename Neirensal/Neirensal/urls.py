@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import correo, registrado, agregarP, eliminarP, limpiarC, restarP, register, tienda,home,send_notification,stock,pacientes,form_producto,form_mod_producto,form_del_producto,form_paciente,form_mod_paciente,form_del_paciente
+from core.views import correo, registrado, agregarP, eliminarP, limpiarC, restarP, register, tienda,home,send_notification,stock,pacientes,stockmed,pacientesmed,form_producto,form_mod_producto,form_del_producto,form_paciente,form_mod_paciente,form_del_paciente
 from django.contrib.auth.views import LoginView, LogoutView
 from core import views
 from django.contrib.auth import views as auth_views
@@ -26,13 +26,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',home ,name="home"),
     path('stock',stock , name="stock"),
+    path('stockmed',stockmed , name="stockmed"),
     path('tienda',tienda , name="tienda"),
     path('registrado/', registrado , name="registrado"),
     path('register/',views.register,name='register'),
     path('logout/', LogoutView.as_view(template_name='core/logout.html'), name='logout'),
     path('', LoginView.as_view(template_name='core/loginn.html'), name='loginn'),
     path('correo',correo, name="correo"), 
-    path('pacientes',pacientes, name="pacientes"), 
+    path('pacientes',pacientes, name="pacientes"),
+    path('pacientesmed',pacientesmed, name="pacientesmed"), 
     path('agregar/<int:id_remedio>/', agregarP, name="Agg"),
     path('eliminar/<int:producto_id>/', eliminarP, name="Ell"),
     path('restar/<int:producto_id>/', restarP, name="Sub"),

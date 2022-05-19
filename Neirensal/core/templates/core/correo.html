@@ -22,13 +22,20 @@
             <script src=" {% static 'java/script.js' %} "></script>
             <div class="topnav" id="myTopnav">
                 <a href="{% url 'home' %}" class="active"><img src=" {% static 'img/Logo_DuocUC.png' %} " alt="" width="25px"> Neirensal</a>
-                <a class="indemenu" href="{% url 'tienda' %}">Tienda</a>
-                <a class="indemenu" href="{% url 'stock' %}">stock</a>
-                <a class="indemenu" href="{% url 'correo' %}">correo</a>
 
                 <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
-                    <a class="indemenu" href="{% url 'stock' %}">LISTA PRODUCTO</a> {% endif %}
+                    <a class="indemenu" href="{% url 'stock' %}">Administrar stock</a>
+                    <a class="indemenu" href="{% url 'pacientes' %}">Ver prescripciones</a>
+                    <a class="indemenu" href="{% url 'form_producto' %}">agregar producto</a>
+
+                    {% else %}
+
+                    <a class="indemenu" href="{% url 'form_paciente' %}">Crear prescripcion</a>
+                    <a class="indemenu" href="{% url 'pacientesmed' %}">Ver lista de pacientes</a>
+                    <a class="indemenu" href="{% url 'stockmed' %}">Ver stock</a>
+                    {% endif %}
                 </div>
+
                 <div>
                     {% if request.user.is_authenticated %}
                     <a class="inicioderecha" href="{% url 'logout' %}">cerrar secion</a> {% else %}

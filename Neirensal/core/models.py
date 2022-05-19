@@ -48,7 +48,8 @@ class Paciente(models.Model):
     nombre = models.CharField(max_length=64)
     correo = models.CharField(max_length=64, verbose_name='Correo')
     numero = models.CharField(max_length=64, verbose_name='Numero')
-    diagnostico = models.CharField(max_length=40, verbose_name='Diagnostico paciente')
+    diagnostico = models.CharField(max_length=64, verbose_name='Diagnostico paciente')
+    receta = models.CharField(max_length=64, verbose_name='Receta del paciente')
 
     def __str__(self):
         return self.nombre
