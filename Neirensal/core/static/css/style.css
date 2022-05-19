@@ -146,6 +146,7 @@ body {
     cursor: default;
 }
 
+
 .text-black {
     color: #000;
 }
@@ -161,7 +162,7 @@ body {
 
 .jumbotron1 {
     padding: 3px 10px;
-    border: 5px solid #246355;
+    border: 5px solid #e4e4e4;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding-top: 30px;
@@ -169,11 +170,25 @@ body {
     padding-left: 30px;
     margin-bottom: 40px;
     color: inherit;
-    background-color: rgba(51, 51, 51, 0.883);
+    background-color: rgba(255, 255, 255, 0.883);
     transition: all 400ms ease-out;
     cursor: default;
 }
 
+.jumbotron1black2 {
+    padding: 3px 10px;
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    color: inherit;
+    background-color: rgba(224, 223, 223, 0.883);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
 .jumbotron1black {
     padding: 3px 10px;
     border: rgb(0, 0, 0) 5px solid;
@@ -703,7 +718,19 @@ tr:hover td {
 
 .inicioderecha {
     position: relative;
-    text-align: right
+    border: 1px solid #4c4caf;
+    text-align: right;
+    border-radius: 10px;
+    display: inline-block;
+    width: 200px;
+    text-decoration: none;
+    font-size: 20px
+}
+
+.inicioderecha:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
 }
 
 .formomarco {

@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from re import template
 from django.shortcuts import redirect, render, HttpResponse
 from core.Carrito import Carrito
@@ -7,6 +8,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from twilio.rest import Client
 from Neirensal.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from core.forms import UserRegisterForm
+from django.contrib import messages
 
 def home (request):
     #return render(request, 'core/home.html') 
@@ -29,6 +32,8 @@ def correo (request):
 def prescripcion (request):
     return render(request, 'core/prescripcion.html')
     
+def registrado (request):
+    return render(request, 'core/registrado.html')    
 
 def tienda(request):
     if request.method == 'POST':
@@ -99,3 +104,25 @@ def send_notification(request):
         return HttpResponse('Great! Expect a message...')
 
     return render(request, 'phone.html')
+
+
+def register(request):
+	if request.method == 'POST':
+		form = UserRegisterForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data['username']
+			return render(request, 'core/registrado.html')
+	else:
+		form = UserRegisterForm()
+
+	context = { 'form' : form }
+	return render(request, 'core/register.html', context)
+
+    
+def loginUsu(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    print(username)
+    print(password)
+    return render(request, 'core/loginn.html')
