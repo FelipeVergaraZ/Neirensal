@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from unicodedata import name
 from django.contrib import admin
 from django.urls import path
-from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,home,send_notification,stock,prescripcion,form_producto,form_mod_producto,form_del_producto
+from core.views import correo,agregarP, eliminarP, limpiarC, restarP, tienda,home,send_notification,stock,prescripcion,pacientes,form_producto,form_mod_producto,form_del_producto,form_paciente,form_mod_paciente,form_del_paciente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,6 +24,7 @@ urlpatterns = [
     path('stock',stock , name="stock"),
     path('tienda',tienda , name="tienda"),
     path('correo',correo, name="correo"), 
+    path('pacientes',pacientes, name="pacientes"),
     path('prescripcion',prescripcion, name="prescripcion"), 
     path('agregar/<int:id_remedio>/', agregarP, name="Agg"),
     path('eliminar/<int:producto_id>/', eliminarP, name="Ell"),
@@ -32,4 +34,7 @@ urlpatterns = [
     path('form_producto', form_producto, name="form_producto"),
     path('form_mod_producto/<id>', form_mod_producto, name="form_mod_producto"),
     path('form_del_producto/<id>', form_del_producto, name="form_del_producto"),
+    path('form_paciente', form_paciente, name="form_paciente"),
+    path('form_mod_paciente/<id>', form_mod_paciente, name="form_mod_paciente"),
+    path('form_del_paciente/<id>', form_del_paciente, name="form_del_paciente"),
 ]

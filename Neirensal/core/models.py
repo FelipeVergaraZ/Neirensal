@@ -1,3 +1,4 @@
+
 from tabnanny import verbose
 
 from django.db import models
@@ -25,6 +26,15 @@ class Producto(models.Model):
 
     def __str__(self):
         return f'{self.nombre} -> {self.precio}'
+
+class Paciente(models.Model):
+    nombre = models.CharField(max_length=64)
+    correo = models.CharField(max_length=64, verbose_name='Correo')
+    numero = models.CharField(max_length=64, verbose_name='Numero')
+    diagnostico = models.CharField(max_length=40, verbose_name='Diagnostico paciente')
+
+    def __str__(self):
+        return self.nombre
 
 
 #Modelo para remedio
