@@ -59,7 +59,7 @@
                     <tr>
                         <th cope="col">Nombre</th>
                         <th cope="col">Categoria</th>
-                        <th cope="col">Precio del producto</th>
+                        <th cope="col">Stock Disponible</th>
 
                     </tr>
                 </thead>
@@ -70,7 +70,7 @@
     
                         <td>{{producto.nombre}}</td>
                         <td>{{producto.categoria}}</td>
-                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
                     </tr>
                 </table>
                 <br>
@@ -94,17 +94,9 @@
 
             <div class="jumbotronblack">
 
-                {% block title %}Customer WhatsApp Notification{% endblock %}
 
                 {% block content %}
-                    <h1>Submit WhatsApp Contact</h1>
-                
-                    <form action="/" method="post">
-                        {% csrf_token %}
-                        <label for="your_name">Your WhatsApp number: </label> 
-                        <input id="user_number" type="text" name="user_number" >
-                        <input type="submit" value="Submit">
-                    </form>
+                {% include "core/phone.html" %}
                 {% endblock %}
             </div>
 

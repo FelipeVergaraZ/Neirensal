@@ -44,9 +44,17 @@ def registrado (request):
     return render(request, 'core/registrado.html')    
 
 def tienda(request):
+    
     if request.method == 'POST':
-        mail = request.POST.get('mail')
-        send_email(mail)
+        var1 = request.POST.get('mail')
+        var2 = request.POST.get('user_number')
+        xd = len(var1)
+        xd2 = len(var2)
+        if xd != 0:
+            mail = request.POST.get('mail')
+            send_email(mail)
+        if xd2 != 0:
+            send_notification()
     productos = Producto.objects.all()
     return render(request, "core/tienda.html", {'productos':productos})
 
@@ -74,7 +82,7 @@ def limpiarC(request):
     carrito.limpiar()
     return redirect("tienda")
 
-def send_email(mail):
+def send_email(request,mail):
     context = {'mail': mail}
     template = get_template('core/correo.html')
     content = template.render(context)
@@ -87,6 +95,8 @@ def send_email(mail):
     )
     email.attach_alternative(content,'text/html')
     email.send()
+
+    return render(request, "phone.html")
 
 order_details = {
     'amount': '5kg',
@@ -109,7 +119,7 @@ def send_notification(request):
 
         print(user_whatsapp_number)
         print(message.sid)
-        return HttpResponse('Great! Expect a message...')
+        
 
     return render(request, 'phone.html')
 
