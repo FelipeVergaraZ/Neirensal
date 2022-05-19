@@ -36,27 +36,53 @@
     <header class="masthead text-center text-white">
     </header>
 
+    <div class="col-lg-6 order-lg-1">
+        <div class="p-5">
+            <br>
+            <div>
+                <form name="myForm" class="marcocontacto" action="return " onsubmit="return validar()" method="post">
 
-    <section>
-        <div class="container">
-            <div class="jumbotronblack ">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/st.jpg' %}"></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h3 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'prescripcion' %}">prescripcion</a></h3>
-                            <p>Lorem ipsum dolorr sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
-                                obcaecati.
-                            </p>
+                    <div class="pepe">
+                        <div class=" jumbotrontitulo">
+                            <h2 class="">Prescripcion del paciente</h2>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <br>
+                        <label for="username"></label><br>
 
+                        <p class=" jumbotrontext">Nombre:</p>
+                        <input class="blanco" type="text" id="username" name="username" pattern="[a-z0-9._%+-]{4,20}" placeholder="Nombre del paciente"><br>
+
+                        <label for="email"></label><br>
+                        <P class=" jumbotrontext">Correo del paciente:</P>
+                        <input class="blanco" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="nombre@gmail.com"><br>
+
+                        <label for="phone"></label>
+                        <br>
+
+                        <P class=" jumbotrontext">NUMERO TELEFONICO:</P>
+                        <small class=" jumbotrontextsm">+56</small>
+                        <input class="blanco" type="tel" id="phone" name="phone" pattern="[0-9]{9}" placeholder="987654321">
+                        <br>
+
+                        <label for="msg"></label><br>
+                        <P class=" jumbotrontext">DIAGNOSTICO</P>
+
+                        <input class="blancocel" type="text" id="msg" name="message"><br>
+                        <br>
+                        <input class="blanco" type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+                        <br>
+                        <br>
+                        <input class="botonenviar" type="reset" onclick="alert('SE BORRO TODO LO INSERTADO')" value="-BORRAR TODO-" required>
+                        <br>
+                        <br>
+                        <input class="botonenviar" type="submit" type="button" value="-ENVIAR-" required>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
     <br>
     <div class="container">
         <article>

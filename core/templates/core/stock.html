@@ -35,38 +35,50 @@
 
     <header class="masthead text-center text-white">
     </header>
-
-
-    <section>
-        <div class="container">
-            <div class="jumbotronblack ">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/st.jpg' %}"></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h3 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'prescripcion' %}">prescripcion</a></h3>
-                            <p>Lorem ipsum dolorr sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
-                                obcaecati.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <br>
     <div class="container">
         <article>
             <div class="jumbotron">
-                <div class="row align-items-center">
+                <div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}"></div>
+
                     </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
+
+                            
+                            <table border="1" class="customers">
+                                <h1 class=" formomar4">LISTA DE PRODUCTOS</h1>
+                                <thead>
+                                    <tr>
+                                        <th cope="col">Id de producto</th>
+                                        <th cope="col">Descripcion del producto</th>
+                                        <th cope="col">Laboratorio del producto</th>
+                                        <th cope="col">Nombre del producto</th>
+                                        <th cope="col">Precio del producto</th>
+                                        <th cope="col">Stock del producto</th>
+                                        <th cope="col">Estado</th>
+                                        <th scope="col">Opciones</th>
+
+                                    </tr>
+                                </thead>
+                                {% for re in productos%}
+                                <section>
+                    
+                                    <tr>
+                    
+                                        <td>{{re.id }}</td>
+                                        <td>{{re.descripcion }}</td>
+                                        <td>{{re.marca }}</td>
+                                        <td>{{re.nombre | capfirst}}</td>
+                                        <td>${{re.precio}}</td>
+                                        <td>{{re.stock}}</td>
+                                        <td>{{re.estado}}</td>
+                                        <td><a href="{% url 'form_mod_producto' re.id %}">Modificar</a></td>
+                                        <td><a href="{% url 'form_mod_producto' re.id %}">Eliminar</a></td>
+                                    </tr>
+                                </section>
+                                {% endfor%}
+                            </table>
+                            <a href="{% url 'form_producto'%}">Nuevo Producto</a>
 
                         </div>
                     </div>
