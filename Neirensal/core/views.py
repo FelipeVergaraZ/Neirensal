@@ -47,14 +47,18 @@ def tienda(request):
     
     if request.method == 'POST':
         var1 = request.POST.get('mail')
-        var2 = request.POST.get('user_number')
         xd = len(var1)
+
+        var2 = len(request.POST.get('user_number'))        
         xd2 = len(var2)
+
         if xd != 0:
             mail = request.POST.get('mail')
             send_email(mail)
+
         if xd2 != 0:
-            send_notification()
+            send_notification(request)
+
     productos = Producto.objects.all()
     return render(request, "core/tienda.html", {'productos':productos})
 
