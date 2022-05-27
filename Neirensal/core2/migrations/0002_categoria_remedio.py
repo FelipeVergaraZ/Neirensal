@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0001_initial'),
+        ('core2', '0001_initial'),
     ]
 
     operations = [
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('precio', models.CharField(max_length=20, verbose_name='Precio remedio')),
                 ('marca', models.CharField(max_length=20, verbose_name='Marca remedio')),
                 ('descripcion', models.CharField(max_length=20, verbose_name='Descripcion remedio')),
-                ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.categoria')),
+                ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core2.categoria')),
             ],
         ),
     ]

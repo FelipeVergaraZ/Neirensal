@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import redirect, render, HttpResponse
-from core.Carrito import Carrito
-from core.models import Producto
+from core2.Carrito import Carrito
+from core2.models import Producto
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
@@ -10,25 +10,25 @@ from Neirensal.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 from .forms import ProductoForm
 
 def home (request):
-    #return render(request, 'core/home.html') 
+    #return render(request, 'core2/home.html') 
     productos= Producto.objects.all()
     datos = {
         'productos': productos
     }
-    return render(request, 'core/home.html', datos)
+    return render(request, 'core2/home.html', datos)
 
 def stock (request):
     productos= Producto.objects.all()
     datos = {
         'productos': productos
     }
-    return render(request, 'core/stock.html', datos)
+    return render(request, 'core2/stock.html', datos)
 
 def correo (request):
-    return render(request, 'core/correo.html')
+    return render(request, 'core2/correo.html')
 
 def prescripcion (request):
-    return render(request, 'core/prescripcion.html')
+    return render(request, 'core2/prescripcion.html')
     
 
 def tienda(request):
@@ -60,7 +60,7 @@ def tienda(request):
             send_email(mail)    
 
     productos = Producto.objects.all()
-    return render(request, "core/tienda.html", {'productos':productos})
+    return render(request, "core2/tienda.html", {'productos':productos})
 
 
 def agregarP(request, producto_id):
@@ -88,7 +88,7 @@ def limpiarC(request):
 
 def send_email(mail):
     context = {'mail': mail}
-    template = get_template('core/correo.html')
+    template = get_template('core2/correo.html')
     content = template.render(context)
 
     email = EmailMultiAlternatives(
@@ -113,7 +113,7 @@ def form_producto(request):
         if formulario.is_valid:
             formulario.save()
             datos['mensaje'] = "Guardados correctamente"
-    return render(request, 'core/form_producto.html',datos)
+    return render(request, 'core2/form_producto.html',datos)
 
 def form_mod_producto(request, id):
     producto = Producto.objects.get(id=id)
@@ -126,7 +126,7 @@ def form_mod_producto(request, id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = "Modificados correctamente"
-    return render(request, 'core/form_mod_producto.html', datos)
+    return render(request, 'core2/form_mod_producto.html', datos)
 
 def form_del_producto(request, id):
     producto = Producto.objects.get(id=id)
